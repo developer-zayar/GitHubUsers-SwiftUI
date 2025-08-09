@@ -49,7 +49,7 @@ struct ContentView: View {
         let (data, _) = try await URLSession.shared.data(from: url)
 
         let decoded = try JSONDecoder().decode([GitHubUserResponse].self, from: data)
-        self.githubUsers = GitHubUsersMapper().map(response: decoded)
+        self.githubUsers = GitHubUsersMapper().map(input: decoded)
     }
 }
 
