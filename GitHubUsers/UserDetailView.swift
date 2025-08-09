@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    let user: GitHubUser
+    @State var user: GitHubUserNew
 
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 12) {
-                    AsyncImage(url: URL(string: user.imageUrl)) { image in
+                    AsyncImage(url: URL(string: self.user.avatarUrl)) { image in
                         image.resizable()
                             .scaledToFit()
                     } placeholder: {
@@ -26,17 +26,17 @@ struct UserDetailView: View {
                     .frame(width: 140, height: 140)
                     .clipShape(Circle())
 
-                    Text(user.username)
+                    Text(self.user.name)
                         .font(.title)
                         .bold()
 
-                    Text(user.name)
-                        .font(.headline)
+//                    Text(self.user.name)
+//                        .font(.headline)
 
                     HStack {
-                        Text("Followers: \(user.followers)")
+                        Text("Followers: 0")
                         Spacer()
-                        Text("Following: \(user.following)")
+                        Text("Following: 0")
                     }
                     .foregroundStyle(Color.gray)
 
@@ -45,38 +45,53 @@ struct UserDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding()
 
-                    ForEach(user.repositories) { repository in
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(repository.name)
-                                .font(.headline)
-                                .foregroundStyle(Color.blue)
-
-                            HStack {
-                                Text(repository.language)
-                                    .font(.subheadline)
-
-                                Spacer()
-
-                                Image(systemName: "star.fill")
-                                    .foregroundStyle(Color.gray)
-
-                                Text("\(repository.stars)")
-                            }
-
-                            Text(repository.description)
-                        }
-                        .padding(.vertical)
-
-                        Divider()
-                    }
+//                    ForEach(user.repositories) { repository in
+//                        VStack(alignment: .leading, spacing: 8) {
+//                            Text(repository.name)
+//                                .font(.headline)
+//                                .foregroundStyle(Color.blue)
+//
+//                            HStack {
+//                                Text(repository.language)
+//                                    .font(.subheadline)
+//
+//                                Spacer()
+//
+//                                Image(systemName: "star.fill")
+//                                    .foregroundStyle(Color.gray)
+//
+//                                Text("\(repository.stars)")
+//                            }
+//
+//                            Text(repository.description)
+//                        }
+//                        .padding(.vertical)
+//
+//                        Divider()
+//                    }
                 }
                 .padding()
             }
-            .navigationTitle(user.username)
+            .navigationTitle(self.user.login)
+            .task {
+                try? await self.getUserDetail()
+            }
         }
+    }
+
+    func getUserDetail() async throws {
+        let urlString = "https://api.github.com/users/\(user.login)"
+        guard let url = URL(string: urlString) else {
+            return
+        }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+
+        let response = try JSONDecoder().decode(GitHubUserResponse.self, from: data)
+        self.user = GitHubUserMapper().map(response: response)
     }
 }
 
 #Preview {
-    UserDetailView(user: sampleUsers.first!)
+    UserDetailView(user: GitHubUserNew(id: 1, login: "username", avatarUrl: "", name: "Name"))
 }
