@@ -8,16 +8,15 @@
 import Foundation
 
 struct GitHubUser: Identifiable {
-    let id = UUID()
-    let username: String
+    let id: Int
+    let login: String
+    let avatarUrl: String
     let name: String
-    let imageUrl: String
     let followers: Int
     let following: Int
-    let repositories: [GitHubRepository]
 }
 
-struct GitHubRepository: Identifiable {
+struct UserRepository: Identifiable {
     let id: Int
     let name: String
     let description: String

@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		75A902402E3FB46D0021D969 /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A902402E3FB46D0021D969 /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GitHubUsers.app; path = "/Users/zayyarphyo/Development/Courses/CodeSphere Acamedy/Projects/GitHubUsers/build/Debug-iphoneos/GitHubUsers.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		75A902422E3FB46D0021D969 /* GitHubUsers */ = {
+		75F6E59A2E643CFD001268B1 /* GitHubUsers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = GitHubUsers;
 			sourceTree = "<group>";
@@ -32,17 +32,8 @@
 		75A902372E3FB46D0021D969 = {
 			isa = PBXGroup;
 			children = (
-				75A902422E3FB46D0021D969 /* GitHubUsers */,
-				75A902412E3FB46D0021D969 /* Products */,
+				75F6E59A2E643CFD001268B1 /* GitHubUsers */,
 			);
-			sourceTree = "<group>";
-		};
-		75A902412E3FB46D0021D969 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				75A902402E3FB46D0021D969 /* GitHubUsers.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,7 +52,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				75A902422E3FB46D0021D969 /* GitHubUsers */,
+				75F6E59A2E643CFD001268B1 /* GitHubUsers */,
 			);
 			name = GitHubUsers;
 			packageProductDependencies = (
@@ -95,7 +86,7 @@
 			mainGroup = 75A902372E3FB46D0021D969;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 75A902412E3FB46D0021D969 /* Products */;
+			productRefGroup = 75A902372E3FB46D0021D969;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

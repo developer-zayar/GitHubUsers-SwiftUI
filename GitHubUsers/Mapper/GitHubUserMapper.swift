@@ -15,23 +15,25 @@ protocol ModelMapper {
 
 struct GitHubUserMapper: ModelMapper {
     typealias Input = GitHubUserResponse
-    typealias Output = GitHubUserNew
+    typealias Output = GitHubUser
 
-    func map(input: GitHubUserResponse) -> GitHubUserNew {
-        GitHubUserNew(
+    func map(input: GitHubUserResponse) -> GitHubUser {
+        GitHubUser(
             id: input.id,
             login: input.login,
-            avatarUrl: input.avatar_url,
-            name: input.name ?? ""
+            avatarUrl: input.avatar_url ?? "",
+            name: input.name ?? "",
+            followers: input.followers ?? 0,
+            following: input.following ?? 0
         )
     }
 }
 
 struct GitHubUsersMapper: ModelMapper {
     typealias Input = [GitHubUserResponse]
-    typealias Output = [GitHubUserNew]
+    typealias Output = [GitHubUser]
 
-    func map(input: [GitHubUserResponse]) -> [GitHubUserNew] {
+    func map(input: [GitHubUserResponse]) -> [GitHubUser] {
         input.map {
             GitHubUserMapper().map(input: $0)
         }
@@ -40,24 +42,24 @@ struct GitHubUsersMapper: ModelMapper {
 
 struct RepositoryMapper: ModelMapper {
     typealias Input = RepositoryResponse
-    typealias Output = GitHubRepository
+    typealias Output = UserRepository
 
-    func map(input: RepositoryResponse) -> GitHubRepository {
-        GitHubRepository(
+    func map(input: RepositoryResponse) -> UserRepository {
+        UserRepository(
             id: input.id,
             name: input.name,
             description: input.description ?? "",
             language: input.language ?? "",
-            stars: input.stargazers_count
+            stars: input.stargazers_count ?? 0
         )
     }
 }
 
 struct RepositoriesMapper: ModelMapper {
     typealias Input = [RepositoryResponse]
-    typealias Output = [GitHubRepository]
+    typealias Output = [UserRepository]
 
-    func map(input: [RepositoryResponse]) -> [GitHubRepository] {
+    func map(input: [RepositoryResponse]) -> [UserRepository] {
         input.map {
             RepositoryMapper().map(input: $0)
         }
@@ -67,15 +69,10 @@ struct RepositoriesMapper: ModelMapper {
 struct GitHubUserResponse: Identifiable, Decodable {
     let id: Int
     let login: String
-    let avatar_url: String
+    let avatar_url: String?
     let name: String?
-}
-
-struct GitHubUserNew: Identifiable {
-    let id: Int
-    let login: String
-    let avatarUrl: String
-    let name: String
+    let followers: Int?
+    let following: Int?
 }
 
 struct RepositoryResponse: Identifiable, Decodable {
@@ -83,5 +80,5 @@ struct RepositoryResponse: Identifiable, Decodable {
     let name: String
     let description: String?
     let language: String?
-    let stargazers_count: Int
+    let stargazers_count: Int?
 }
