@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		75A902402E3FB46D0021D969 /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GitHubUsers.app; path = "/Users/zayyarphyo/Development/Courses/CodeSphere Acamedy/Projects/GitHubUsers/build/Debug-iphoneos/GitHubUsers.app"; sourceTree = "<absolute>"; };
+		75C5CAD22E6582360067277D /* GitHubUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		75C5CB162E6587240067277D /* Exceptions for "GitHubUsers" folder in "GitHubUsers" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 75A9023F2E3FB46D0021D969 /* GitHubUsers */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		75F6E59A2E643CFD001268B1 /* GitHubUsers */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				75C5CB162E6587240067277D /* Exceptions for "GitHubUsers" folder in "GitHubUsers" target */,
+			);
 			path = GitHubUsers;
 			sourceTree = "<group>";
 		};
@@ -33,6 +46,7 @@
 			isa = PBXGroup;
 			children = (
 				75F6E59A2E643CFD001268B1 /* GitHubUsers */,
+				75C5CAD22E6582360067277D /* GitHubUsers.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +72,7 @@
 			packageProductDependencies = (
 			);
 			productName = GitHubUsers;
-			productReference = 75A902402E3FB46D0021D969 /* GitHubUsers.app */;
+			productReference = 75C5CAD22E6582360067277D /* GitHubUsers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -118,6 +132,8 @@
 /* Begin XCBuildConfiguration section */
 		75A902492E3FB46F0021D969 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 75F6E59A2E643CFD001268B1 /* GitHubUsers */;
+			baseConfigurationReferenceRelativePath = AppEnv/Staging.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -182,6 +198,8 @@
 		};
 		75A9024A2E3FB46F0021D969 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 75F6E59A2E643CFD001268B1 /* GitHubUsers */;
+			baseConfigurationReferenceRelativePath = AppEnv/Production.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -239,6 +257,8 @@
 		};
 		75A9024C2E3FB46F0021D969 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 75F6E59A2E643CFD001268B1 /* GitHubUsers */;
+			baseConfigurationReferenceRelativePath = AppEnv/Staging.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -247,6 +267,8 @@
 				DEVELOPMENT_TEAM = H2UMUQNH9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GitHubUsers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -257,7 +279,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyp.GitHubUsers;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -267,6 +289,8 @@
 		};
 		75A9024D2E3FB46F0021D969 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 75F6E59A2E643CFD001268B1 /* GitHubUsers */;
+			baseConfigurationReferenceRelativePath = AppEnv/Production.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -275,6 +299,8 @@
 				DEVELOPMENT_TEAM = H2UMUQNH9M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GitHubUsers/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_BUNDLE_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -285,7 +311,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyp.GitHubUsers;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

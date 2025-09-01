@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  GitHubUsers
+//
+//  Created by Zay Yar Phyo on 01/09/2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+APP_BUNDLE_DISPLAY_NAME = GitHubUsers
+APP_BUNDLE_IDENTIFIER = com.zyp.GitHubUsers
+HOST_NAME = api.github.com
