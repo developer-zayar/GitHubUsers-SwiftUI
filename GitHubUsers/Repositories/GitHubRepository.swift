@@ -21,19 +21,19 @@ class GitHubRepository: GitHubRepositoryDelegate {
     }
 
     func fetchUsers() async throws -> [GitHubUserResponse] {
-        let urlString = "https://api.github.com/users"
+        let urlString = "\(AppConfig.baseUrl)/users"
         let response = try await networkClient.getRequest(urlString, type: [GitHubUserResponse].self)
         return response
     }
 
     func fetchUserDetails(userId: String) async throws -> GitHubUserResponse {
-        let urlString = "https://api.github.com/users/\(userId)"
+        let urlString = "\(AppConfig.baseUrl)/users/\(userId)"
         let response = try await networkClient.getRequest(urlString, type: GitHubUserResponse.self)
         return response
     }
 
     func fetchRepositories(userId: String) async throws -> [RepositoryResponse] {
-        let urlString = "https://api.github.com/users/\(userId)/repos"
+        let urlString = "\(AppConfig.baseUrl)/users/\(userId)/repos"
         let response = try await networkClient.getRequest(urlString, type: [RepositoryResponse].self)
         return response
     }

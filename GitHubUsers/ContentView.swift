@@ -41,9 +41,9 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("GitHub Users")
-            .task {
-                await viewModel.getGitHubUsers()
-            }
+        }
+        .task {
+            await viewModel.getGitHubUsers()
         }
     }
 }
